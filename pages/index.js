@@ -27,19 +27,29 @@ export default function Home() {
   return (
 
       profiles.map((profile, i) => (
-        // <Link href={`/profile/${profile.id}`} key={i}>
-          <a key={i}>
-            <div className=''>
-           <div className=''>
-              { profile.coverPicture ? <img src={profile.coverPicture.original.url} className='profile-pic' /> : null }
+        profile.name 
+        ?
+        <Link href={`/profile/${profile.id}`} key={i}>
+          <a>
+            <div className='profile'>
+           <div className='coverpicture'>
+              { profile.coverPicture 
+                ? 
+                    <img src={profile.coverPicture.original.url} className='profile-pic' /> 
+                : 
+                    <div className='no-profile-pic'>
+                    </div>
+              }
               </div>
-              <div className=''>
-                <h3>{profile.name}</h3>
-                <p>{profile.bio}</p>
+              <div className='profile-intro'>
+                <h3 className='profile-title'>{profile.name}</h3>
+                <p className='profile-description'>{profile.bio}</p>
               </div> 
             </div> 
           </a>
-        //</Link>
+        </Link>
+        :
+        null
       ))
       
 

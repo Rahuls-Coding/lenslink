@@ -1,3 +1,5 @@
+
+
 html,
 body {
   padding: 0;
@@ -31,4 +33,30 @@ a {
   width: 2rem;
   height: 2rem;
   object-fit: cover;
+}
+
+.no-profile-pic {
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  object-fit: cover;
+  background-image: linear-gradient(to right top,rgba(200,10,100),rgba(255,200,100), rgba(255,255,255));
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  /* justify-content: center;
+  flex-wrap: wrap;
+  max-width: 800px; */
+  padding: 0.5rem;
+}
+
+.profile-intro {
+  padding-left: 15px;
+  padding-top: 10px
+}
+
+.profile-title {
+  padding-top: 1.7rem;
 }
