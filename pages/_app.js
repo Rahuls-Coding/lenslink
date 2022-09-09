@@ -14,7 +14,8 @@ function MyApp({ Component, pageProps }) {
   return( 
     <WagmiConfig client={client}>
       <Component {...pageProps} />
-  </WagmiConfig>)
+    </WagmiConfig>
+    )
 }
 
 export default MyApp

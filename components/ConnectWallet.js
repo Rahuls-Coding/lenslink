@@ -5,12 +5,15 @@ import { InjectedConnector } from 'wagmi/connectors/injected'
 
 export default function ConnectWallet() {
       
+
     const { address, isConnected } = useAccount()
     const { connect } = useConnect({
       connector: new InjectedConnector(),
     })
     const { disconnect } = useDisconnect()
   
+    console.log('running twice?')
+
     if (isConnected)
       return (
         <div>
