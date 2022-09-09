@@ -15,7 +15,6 @@ export default function Home() {
   async function fetchProfiles() {
     try {
     const response = await client.query(recommendedProfiles).toPromise()
-    // console.log({response})
     console.log(response.data.recommendedProfiles)
     setProfiles(response.data.recommendedProfiles)
     } catch (error) {
@@ -31,7 +30,7 @@ export default function Home() {
         ?
         <Link href={`/profile/${profile.id}`} key={i}>
           <a>
-            <div className='profile'>
+          <div className='profile'>
            <div className='coverpicture'>
               { profile.coverPicture 
                 ? 
