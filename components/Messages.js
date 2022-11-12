@@ -10,6 +10,7 @@ export default function Message() {
     const { data:signer } = useSigner()
     const [message, setMessage] = useState('')
     const [xmtpClient, setXmtpClient] = useState(null)
+    const [messages, setMessages] = useState([])
   
     
     const createDms = async () => {
@@ -22,6 +23,8 @@ export default function Message() {
           )
         for await (const message of await conversation.streamMessages()) {  
           console.log(`[${message.senderAddress}]: ${message.content}`)
+          const memo = message.content
+          setMessages((t) => [...t, memo])
         }
       }
     }
@@ -31,8 +34,15 @@ export default function Message() {
         const conversation = await xmtpClient.conversations.newConversation(
           '0x05F0D0CcC2b00f55ea61684Ae2b9369e5e499F91'
           )
-          await conversation.send(message)
+          if (message === '') {
+            alert("Cant't send empty message")
+          } else {
+            await conversation.send(message)
+          }
           setMessage('')
+        } 
+          else {
+          alert("Please connect your wallet & Sign the Message")
         }
       }
 
@@ -48,6 +58,10 @@ export default function Message() {
 
       }
       
+
+  
+
+
       useEffect(() => {
         if (isConnected) {
         createDms()
@@ -60,9 +74,12 @@ export default function Message() {
     return (
         <div>
             <form onSubmit={onSubmit}>
-              <input onChange={onChange} type="text" placeholder="Message" />
+              <input onChange={onChange} value={message} type="text" placeholder="Message" />
               <button type="submit">Send</button>
             </form>
+            {messages.map((message, id) => {
+              return <div key={id} >{message}</div>
+            })}
         </div>
     )
 }

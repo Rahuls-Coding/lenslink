@@ -3,6 +3,8 @@ import '../styles/globals.css'
 import { WagmiConfig, createClient } from 'wagmi'
 import { getDefaultProvider } from 'ethers'
 
+
+
 const client = createClient({
   autoConnect: true,
   provider: getDefaultProvider(),
@@ -15,6 +17,7 @@ function MyApp({ Component, pageProps }) {
     <WagmiConfig client={client}>
       <Component {...pageProps} />
     </WagmiConfig>
+
     )
 }
 
