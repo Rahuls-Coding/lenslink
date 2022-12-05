@@ -73,10 +73,14 @@ export default function Message() {
 
     return (
         <div>
-            <form onSubmit={onSubmit}>
-              <input onChange={onChange} value={message} type="text" placeholder="Message" />
-              <button type="submit">Send</button>
+            {
+              isConnected ? 
+              
+              <form onSubmit={onSubmit}>
+              <input className="rounded-md p-1 pl-3 m-3" onChange={onChange} value={message} type="text" placeholder="Message" />
+              <button type="submit" className='rounded-md text-md p-1 w-16 h-fit bg-blue-400'>Send</button>
             </form>
+            : null}
             {messages.map((message, id) => {
               return <div key={id} >{message}</div>
             })}
