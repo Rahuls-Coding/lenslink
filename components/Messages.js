@@ -58,10 +58,7 @@ export default function Message() {
 
       }
       
-
-  
-
-
+    
       useEffect(() => {
         if (isConnected) {
         createDms()
@@ -77,12 +74,12 @@ export default function Message() {
               isConnected ? 
               
               <form onSubmit={onSubmit}>
-              <input className="rounded-md p-1 pl-3 m-3" onChange={onChange} value={message} type="text" placeholder="Message" />
-              <button type="submit" className='rounded-md text-md p-1 w-16 h-fit bg-blue-400'>Send</button>
+              <input className="border border-gray-400 rounded-md p-1 pl-3 m-3" onChange={onChange} value={message} type="text" placeholder="Message" />
+              <button type="submit" className='rounded-md text-md p-1 w-16 h-fit bg-blue-400 text-white'>Send</button>
             </form>
             : null}
             {messages.map((message, id) => {
-              return <div key={id} >{message}</div>
+              return <div key={id} className='py-2 px-4 ml-3 mt-2 rounded-md w-fit bg-green-300' >{message}</div>
             })}
         </div>
     )

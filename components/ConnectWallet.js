@@ -16,9 +16,13 @@ export default function ConnectWallet() {
 
     if (isConnected)
       return (
-        <div>
-          Connected to {address}
-          <button onClick={() => disconnect()}>Disconnect</button>
+        <div className='flex justify-start'>
+          <div className='m-4'>
+            Connected to {address}
+          </div>
+          <div className='flex items-center text-white'>
+            <button className='h-max py-2 px-6 bg-red-400 rounded-lg' onClick={() => disconnect()}>Disconnect</button>
+          </div>
         </div>
       )
     return( 
